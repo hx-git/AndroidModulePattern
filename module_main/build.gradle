@@ -5,7 +5,7 @@ if (isModule.toBoolean()) {
 }
 
 android {
-    compileSdkVersion build_versions.target_sdk
+    compileSdkVersion 27
     defaultConfig {
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
@@ -14,16 +14,14 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [moduleName: project.getName()]
             }
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     sourceSets {
         main {
             if (isModule.toBoolean()) {
@@ -37,17 +35,17 @@ android {
             }
         }
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     annotationProcessor deps.arouter_compiler
     implementation project(':lib_common')
 }

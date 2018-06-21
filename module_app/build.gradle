@@ -9,7 +9,7 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 static def buildTime() {
-    return new Date().format("yyyyMMdd");
+    return new Date().format("yyyyMMdd")
 }
 
 android {
@@ -21,8 +21,7 @@ android {
             storePassword keystoreProperties['storePassword']
         }
     }
-
-    compileSdkVersion build_versions.target_sdk
+    compileSdkVersion 27
     defaultConfig {
         applicationId "com.guiying.module"
         minSdkVersion build_versions.min_sdk
@@ -30,16 +29,15 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+
         //打包时间
         resValue "string", "build_time", buildTime()
+
     }
-
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     buildTypes {
         release {
             //更改AndroidManifest.xml中预先定义好占位符信息
@@ -68,12 +66,11 @@ android {
             debuggable true
         }
     }
-
-
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation deps.support.multidex
     implementation project(':lib_common')
     if (!isModule.toBoolean()) {

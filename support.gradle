@@ -1,0 +1,15 @@
+ext {
+    versions = [
+            appcompat_version: "27.1.1",
+            dagger           : "2.11",
+            glide            : "3.8.0",
+            rxjava2          : "2.1.7",
+            rx_android       : "2.0.1",
+            retrofit         : "2.3.0",
+            event_bus        : "3.1.1",
+            photo_view       : "2.0.0",
+            persistent_cookie: "v1.0.1",
+            gson             : "2.8.2",
+            constraint_layout: "1.1.3"
+    ]
+}

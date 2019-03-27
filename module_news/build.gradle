@@ -51,3 +51,7 @@ dependencies {
     annotationProcessor deps.arouter_compiler
     implementation project(':lib_common')
 }
+
+repositories {
+    google()
+}
